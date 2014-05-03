@@ -72,7 +72,7 @@ var computer = new Computer();
 var ball = new Ball(200, 300);
 
 var render = function() {
-  context.fillStyle = "#FFFFFF";
+  context.fillStyle = "#f9ecb6";
   context.fillRect(0, 0, width, height);
   player.render();
   computer.render();
