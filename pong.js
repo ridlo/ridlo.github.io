@@ -5,10 +5,6 @@ var animate = window.requestAnimationFrame ||
 
 var canvas = document.getElementById('myCanvas');
 var context = canvas.getContext('2d');
-var width = 400;
-var height = 600;
-canvas.width = width;
-canvas.height = height;
 
 window.onload = function() {
   document.body.appendChild(canvas);
