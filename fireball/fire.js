@@ -131,7 +131,7 @@ var render = function() { // render all
 
 var stop_render = function(){
     context.fillStyle = "#dcedcf";
-    context.fillRect(-100, 0, width+200, height);
+    context.fillRect(0, 0, width, height);
     
     player.render();
     computer.render();
@@ -140,9 +140,9 @@ var stop_render = function(){
     context.fillStyle = "red";
     context.textAlign = "center";
     if (player_score > 5){
-        context.fillText("You WIN!", 300, 250);
+        context.fillText("You WIN!", 200, 250);
     } else{
-        context.fillText("You LOSE!", 300, 250);
+        context.fillText("Computer WIN! :P", 200, 250);
     }
 }
 
