@@ -91,7 +91,7 @@ FireBall.prototype.render = function() {
 /* init */
 var player = new Player();
 var computer = new Computer();
-var ball = new Ball(200, 300);
+var ball = new FireBall(200, 300);
 
 var render = function() { // render all
   context.fillStyle = "#f9ecb6";
