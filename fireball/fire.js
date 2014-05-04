@@ -102,7 +102,7 @@ var render = function() { // render all
 };
 
 
-Ball.prototype.update = function(stick1, stick2) {
+FireBall.prototype.update = function(stick1, stick2) {
     this.x += this.vx;
     this.y += this.vy;
     
