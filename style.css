@@ -1,0 +1,16 @@
+html, body {
+    /* The universe takes up all available space */
+    width: 100%;
+    height: 100%;
+    
+    /* The universe is black */
+    background-color: white;
+}
+
+#pong {
+    /* Style your earth */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    
+}
