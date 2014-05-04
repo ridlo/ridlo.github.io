@@ -95,7 +95,8 @@ function ScoreBoard(score1, score2) {
 }
 
 ScoreBoard.prototype.render = function(){
-    context.font="20px Georgia";
+    context.font="20px Calibri";
+    context.fillStyle = 'black';
     context.textAlign="start";
     context.fillText("Player " + this.score1.toString() , 10, 50);
     context.textAlign="end";
