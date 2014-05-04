@@ -5,7 +5,7 @@ html, body {
     background-color: white;
 }
 
-#pong {
+#myCanvas {
     position: absolute;
     top: 50%;
     left: 50%;
