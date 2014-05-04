@@ -6,6 +6,7 @@ body {
 
 #myCanvas {
     position: absolute;
+    display: block;
     top: 1%;
     left: 35%;
 }
