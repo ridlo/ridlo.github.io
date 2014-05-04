@@ -115,10 +115,10 @@ FireBall.prototype.update = function(stick1, stick2) {
 
     if(this.x - 5 < 0) { // hitting the left wall
         this.x = 5; // shift (safety)
-        this.x_speed = -this.x_speed;
+        this.vx = -this.vx;
     } else if(this.x + 5 > 400) { // hitting the right wall
         this.x = 395; 
-        this.x_speed = -this.x_speed;
+        this.vx = -this.vx;
     }
 
     if(this.y < 0) { // a point was scored by Player
