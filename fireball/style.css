@@ -4,7 +4,7 @@ body {
     height: 100%;
 }
 
-#myCanvas {
+#mainCanvas {
     position: absolute;
     display: block;
     top: 1%;
