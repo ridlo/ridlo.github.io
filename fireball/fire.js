@@ -1,7 +1,7 @@
-var animate = window.requestAnimationFrame ||
-  window.webkitRequestAnimationFrame ||
-  window.mozRequestAnimationFrame ||
-  function(callback) { window.setTimeout(callback, 1000/60) };
+var animate = window.requestAnimationFrame || // Firefox 23 / IE 10 / Chrome / Safari 7 (incl. iOS)
+              window.webkitRequestAnimationFrame || // Older versions of Safari / Chrome
+              window.mozRequestAnimationFrame || // Firefox < 23
+              function(callback) { window.setTimeout(callback, 1000/60) }; // 60 fps
 
 var canvas = document.getElementById('myCanvas');
 var context = canvas.getContext('2d');
