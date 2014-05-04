@@ -95,8 +95,11 @@ function ScoreBoard(score1, score2) {
 }
 
 ScoreBoard.prototype.render = function(){
-    context.fillText("Player " + this.score1.toString() , 10, 30);
-    context.fillText(this.score2.toString() + " Computer" , 250, 30);
+    context.font="20px Georgia";
+    context.textAlign="start";
+    context.fillText("Player " + this.score1.toString() , 10, 50);
+    context.textAlign="end";
+    context.fillText(this.score2.toString() + " Computer" , 390, 50);
 }
 
 
