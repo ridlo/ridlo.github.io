@@ -3,7 +3,7 @@ var animate = window.requestAnimationFrame || // Firefox 23 / IE 10 / Chrome / S
               window.mozRequestAnimationFrame || // Firefox < 23
               function(callback) { window.setTimeout(callback, 1000/60) }; // 60 fps
 
-var canvas = document.getElementById('myCanvas');
+var canvas = document.getElementById('mainCanvas');
 var context = canvas.getContext('2d');
 var width = canvas.width;
 var height = canvas.height;
