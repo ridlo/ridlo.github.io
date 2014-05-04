@@ -8,15 +8,23 @@ var context = canvas.getContext('2d');
 var width = canvas.width;
 var height = canvas.height;
 
+
 window.onload = function() { // when the page loads, attach the canvas to the screen, call a step function using animate method
     document.body.appendChild(canvas);
     animate(step);
 };
 
+var player_score = 0;
+var computer_score = 0;
+
 var step = function() {
     update(); // update position
-    render(); // render to the screen
-    animate(step); // recursif
+    if (player_score > 5 || computer_score > 5){
+        stop_render();
+    } else{
+        render(); // render to the screen
+        animate(step); // recursif
+    }
 };
 
 
@@ -95,12 +103,12 @@ function ScoreBoard(score1, score2) {
 }
 
 ScoreBoard.prototype.render = function(){
-    context.font="25px Calibri";
+    context.font="20px Calibri";
     context.fillStyle = 'black';
     context.textAlign="start";
-    context.fillText("Player " + this.score1.toString() , 10, 50);
+    context.fillText("You " + this.score1.toString() , 10, 50);
     context.textAlign="end";
-    context.fillText(this.score2.toString() + " Computer" , 390, 50);
+    context.fillText(this.score2.toString() + " Com" , 390, 50);
 }
 
 
@@ -120,6 +128,23 @@ var render = function() { // render all
     ball.render();
     scoreboard.render();
 };
+
+var stop_render = function(){
+    context.fillStyle = "#dcedcf";
+    context.fillRect(-100, 0, width+200, height);
+    
+    player.render();
+    computer.render();
+    
+    context.font      = "40px Calibri";
+    context.fillStyle = "red";
+    context.textAlign = "center";
+    if (player_score > 5){
+        context.fillText("You WIN!", 300, 250);
+    } else{
+        context.fillText("You LOSE!", 300, 250);
+    }
+}
 
 ScoreBoard.prototype.update = function(score1, score2){
     this.score1 = score1;
@@ -145,6 +170,7 @@ FireBall.prototype.update = function(stick1, stick2) {
 
     if(this.y < 0) { // a point was scored by Player
         player.score += 1;
+        player_score += 1;
         this.vx = 0; // restart
         this.vy = 3;
         this.x = 200;
@@ -154,6 +180,7 @@ FireBall.prototype.update = function(stick1, stick2) {
     
     if(this.y > 600) { // a point was scored by Computer
         computer.score += 1;
+        computer_score += 1;
         this.vx = 0;
         this.vy = 3;
         this.x = 200;
