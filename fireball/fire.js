@@ -95,8 +95,8 @@ function ScoreBoard(score1, score2) {
 }
 
 ScoreBoard.prototype.render = function(){
-    context.fillText("Player " + this.score1.toString() , 10, 50);
-    context.fillText("Computer " + this.score2.toString() , 60, 50);
+    context.fillText("Player " + this.score1.toString() , 10, 30);
+    context.fillText(this.score2.toString() + " Computer" , 250, 30);
 }
 
 
@@ -117,9 +117,9 @@ var render = function() { // render all
     scoreboard.render();
 };
 
-ScoreBoard.prototype.update = function(){
-    this.score1 = player.score;
-    this.score2 = computer.score;
+ScoreBoard.prototype.update = function(score1, score2){
+    this.score1 = score1;
+    this.score2 = score2;
 };
 
 FireBall.prototype.update = function(stick1, stick2) {
@@ -141,7 +141,6 @@ FireBall.prototype.update = function(stick1, stick2) {
 
     if(this.y < 0) { // a point was scored by Player
         player.score += 1;
-        scoreboard.update();
         this.vx = 0; // restart
         this.vy = 3;
         this.x = 200;
@@ -151,13 +150,13 @@ FireBall.prototype.update = function(stick1, stick2) {
     
     if(this.y > 600) { // a point was scored by Computer
         computer.score += 1;
-        scoreboard.update();
         this.vx = 0;
         this.vy = 3;
         this.x = 200;
         this.y = 300;
     }
     
+    //  Axis Aligned Bounding Boxes
     if(top_y > 300) {
         if(top_y < (stick1.y + stick1.height) && bottom_y > stick1.y && top_x < (stick1.x + stick1.width) && bottom_x > stick1.x) {
             // hit the player's stick
@@ -215,6 +214,7 @@ var update = function() {
     player.update();
     computer.update(ball);
     ball.update(player.stick, computer.stick);
+    scoreboard.update(player.score, computer.score);
 };
 
 
