@@ -117,6 +117,10 @@ var render = function() { // render all
     scoreboard.render();
 };
 
+ScoreBoard.prototype.update = function(){
+    this.score1 = player.score;
+    this.score2 = computer.score;
+};
 
 FireBall.prototype.update = function(stick1, stick2) {
     this.x += this.vx;
@@ -137,6 +141,7 @@ FireBall.prototype.update = function(stick1, stick2) {
 
     if(this.y < 0) { // a point was scored by Player
         player.score += 1;
+        scoreboard.update();
         this.vx = 0; // restart
         this.vy = 3;
         this.x = 200;
@@ -146,6 +151,7 @@ FireBall.prototype.update = function(stick1, stick2) {
     
     if(this.y > 600) { // a point was scored by Computer
         computer.score += 1;
+        scoreboard.update();
         this.vx = 0;
         this.vy = 3;
         this.x = 200;
