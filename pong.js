@@ -3,9 +3,12 @@ var animate = window.requestAnimationFrame ||
   window.mozRequestAnimationFrame ||
   function(callback) { window.setTimeout(callback, 1000/60) };
 
-
-var canvas = document.getElementById("myCanvas");
+var canvas = document.getElementById('myCanvas');
 var context = canvas.getContext('2d');
+var width = 400;
+var height = 600;
+canvas.width = width;
+canvas.height = height;
 
 window.onload = function() {
   document.body.appendChild(canvas);
