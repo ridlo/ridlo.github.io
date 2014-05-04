@@ -1,11 +1,53 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="utf-8">
+    <title>fireball6</title>
+    <link href="style/main.css" rel="stylesheet" type="text/css">
+    <link rel="shortcut icon" href="favicon.ico">
   
 </head>
 <body>
-  <canvas  id="mainCanvas" width="400" height="600"></canvas>
-  <script src="fire.js"></script>
+  <div class="container">
+    <div class="heading">
+      <h1 class="title">FireBall6</h1>
+      <div class="scores-container">
+        <div class="score-container">0</div>
+        <div class="best-container">0</div>
+      </div>
+    </div>
+
+    <div class="above-game">
+      <p class="game-intro">Get the fireball and win againts your computer</p>
+      <a class="restart-button">New Game</a>
+    </div>
+
+    <div class="game-container">
+      <div class="game-message">
+        <p></p>
+        <div class="lower">
+	        <a class="keep-playing-button">Keep going</a>
+          <a class="retry-button">Try again</a>
+        </div>
+      </div>
+
+      <div class="grid-container">
+        
+      </div>
+    </div>
+
+    <p class="game-explanation">
+      <strong class="important">How to play:</strong> Use your <strong>arrow keys</strong> to move the Paddle. If you get 6th win first, you win the game.
+    </p>
+    <hr>
+    <p>
+    <strong class="important">Note:</strong> This site is the official version of 2048. You can play it on your phone via <a href="http://git.io/2048">http://git.io/2048.</a> All other apps or sites are derivatives or fakes, and should be used with caution.
+    </p>
+    <hr>
+    <p>
+    Created by <a href="http://astrokode.wordpress.com" target="_blank">Ridlo W. Wibowo</a> Based on Pong game.
+    </p>
+  </div>
+  <script src="js/animframe.js"></script>
 </body>
-<html>
+</html>
