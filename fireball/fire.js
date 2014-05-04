@@ -88,19 +88,33 @@ FireBall.prototype.render = function() {
     context.fill();
 };
 
+/* Score board */
+function ScoreBoard(score1, score2) {
+    this.score1 = score1;
+    this.score2 = score2;
+}
+
+ScoreBoard.prototype.render = function(){
+    context.fillText("Player " + this.score1.toString() , 10, 50);
+    context.fillText("Computer " + this.score2.toString() , 60, 50);
+}
+
 
 /* ------------------------------------------------------------- */
 /* init */
 var player = new Player();
 var computer = new Computer();
 var ball = new FireBall(200, 300);
+var scoreboard = new ScoreBoard(player.score, computer.score)
 
 var render = function() { // render all
-  context.fillStyle = "#f9ecb6";
-  context.fillRect(0, 0, width, height);
-  player.render();
-  computer.render();
-  ball.render();
+    context.fillStyle = "#f9ecb6";
+    context.fillRect(0, 0, width, height);
+    
+    player.render();
+    computer.render();
+    ball.render();
+    scoreboard.render();
 };
 
 
@@ -130,7 +144,7 @@ FireBall.prototype.update = function(stick1, stick2) {
 
     }
     
-    if(this.y < 0) { // a point was scored by Computer
+    if(this.y > 600) { // a point was scored by Computer
         computer.score += 1;
         this.vx = 0;
         this.vy = 3;
