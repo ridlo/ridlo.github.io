@@ -38,10 +38,12 @@ Stick.prototype.render = function() {
 };
 
 Stick.prototype.move = function(vx, vy) {
-    this.x += vx;
-    this.y += vy;
     this.vx = vx;
     this.vy = vy;
+    
+    this.x += this.vx;
+    this.y += this.vy;
+
     if (this.x < 0) { // max left
         this.x = 0;
         this.vx = 0;
