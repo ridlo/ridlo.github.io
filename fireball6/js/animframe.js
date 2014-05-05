@@ -147,8 +147,8 @@ var stop_render = function(){
     player.render();
     computer.render();
     
-    context.font      = "50px Clear Sans, Helvetica Neue, Arial, sans-serif";
-    context.fillStyle = "#bbaea2";
+    context.font      = "40px Clear Sans, Helvetica Neue, Arial, sans-serif";
+    context.fillStyle = "#636363";
     context.textAlign = "center";
     if (player_score > 5){
         context.fillText("You WIN!", 200, 250);
