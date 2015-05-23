@@ -174,7 +174,7 @@ function fullScreenControl(controlDiv, map){
     controlUI.appendChild(controlText);
 
     google.maps.event.addDomListener(controlUI, 'click', function(){
-        window.open("islamic/embed.html", "_self");
+        window.open("./embed.html", "_self");
     });
 }
 
