@@ -172,7 +172,7 @@ function exitFSControl(controlDiv, map){
     controlUI.appendChild(controlText);
 
     google.maps.event.addDomListener(controlUI, 'click', function(){
-        window.open("/", "_self");
+        window.open("islamic", "_self");
     });
 }
 
