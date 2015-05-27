@@ -48,10 +48,7 @@ function initialize(){
         zoom: 10,
         center: new google.maps.LatLng(-7.7409531,109.5590196), // ! using Cookies?
         mapTypeId:google.maps.MapTypeId.ROADMAP,
-        zoomControl: true,
-        zoomControlOptions: {
-            style: google.maps.ZoomControlStyle.SMALL
-        }
+        zoomControl: true
     };
 
     // init map
