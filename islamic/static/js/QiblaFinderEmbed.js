@@ -79,7 +79,7 @@ function initialize(){
     qiblaMap.fitBounds(defaultBounds);
 
 
-    var contentString = '<strong>Hello</strong>, this is Tuzki!<br>Have you prayed?';
+    var contentString = '<strong>Hello</strong>, this is Paimin!<br>Have you prayed?';
 
     var infowindow = new google.maps.InfoWindow({
         content: contentString
