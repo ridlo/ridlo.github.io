@@ -187,7 +187,7 @@ function exitFSControl(controlDiv, map){
     controlUI.style.borderRadius = '2px';
     controlUI.style.boxShadow = '0 2px 6px rgba(0,0,0,.3)';
     controlUI.style.cursor = 'pointer';
-    controlUI.style.marginTop = '16px';
+    controlUI.style.marginTop = '10px';
     controlUI.style.marginLeft = '16px';
     controlUI.style.textAlign = 'center';
     controlUI.title = 'exit full screen';

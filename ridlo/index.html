@@ -19,6 +19,14 @@
   </head>
 
   <body>
+    <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.5";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
     <div class="container">
 
       <!-- Static navbar -->
@@ -111,6 +119,7 @@
 
                 <div class="col-md-6 col-sm-6 top10">
                   <!-- <h3>Twiter</h3> -->
+                  <div class="fb-follow" data-href="https://www.facebook.com/ridlo.cepheid" data-layout="standard" data-show-faces="true"></div>
                   <a class="twitter-timeline" href="https://twitter.com/ridlocepheid" data-widget-id="614498770399555586">Tweets by @ridlocepheid</a>
                   <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
                 </div>
@@ -131,6 +140,7 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="static/js/jquery.min.js"></script>
     <script src="static/js/bootstrap.min.js"></script>
+
   </body>
 </html>
 
