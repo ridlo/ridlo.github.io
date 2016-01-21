@@ -3,7 +3,7 @@
 // The maximum width of the info window is set to 200 pixels.
 
 function initMap() {
-  var uluru = {lat: -25.363, lng: 131.044};
+  var uluru = {lat: -2.211931, lng: 113.907327};
   var map = new google.maps.Map(document.getElementById('map'), {
     zoom: 4,
     center: uluru
