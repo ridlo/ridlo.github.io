@@ -32,7 +32,7 @@ function initMap() {
 
   var infowindow = new google.maps.InfoWindow({
     content: contentString,
-    maxWidth: 200
+    maxWidth: 350
   });
 
   var marker = new google.maps.Marker({
@@ -40,7 +40,47 @@ function initMap() {
     map: map,
     title: 'Uluru (Ayers Rock)'
   });
+
   marker.addListener('click', function() {
     infowindow.open(map, marker);
   });
+
+    // add full screen botton
+  var fsControldiv = document.createElement('div');
+  var fsControl = new fullScreenControl(fsControldiv, map); 
+  map.controls[google.maps.ControlPosition.TOP_LEFT].push(fsControldiv);
+
+}
+
+// add full screen button on map
+function fullScreenControl(controlDiv, map){
+    // CSS for the control border
+    var controlUI = document.createElement('div');
+    controlUI.style.backgroundColor = '#fff';
+    controlUI.style.border = '2px solid #fff';
+    controlUI.style.borderRadius = '2px';
+    controlUI.style.boxShadow = '0 2px 6px rgba(0,0,0,.3)';
+    controlUI.style.cursor = 'pointer';
+    controlUI.style.marginTop = '10px';
+    controlUI.style.marginLeft = '16px';
+    controlUI.style.textAlign = 'center';
+    controlUI.title = 'full screen mode';
+    controlDiv.appendChild(controlUI);
+
+    // CSS for the control interior
+    var controlText = document.createElement('div');
+    controlText.style.color = 'rgb(25,25,25)';
+    controlText.style.fontFamily = 'Roboto, Arial, san-serif';
+    controlText.style.fontSize = '15px';
+    controlText.style.lineHeight = '26px';
+    controlText.style.paddingLeft = '7px';
+    controlText.style.paddingRight = '7px';
+    controlText.style.paddingTop = '2px';
+    controlText.innerHTML = '<span class="glyphicon glyphicon-fullscreen" aria-hidden="true">';
+    controlUI.appendChild(controlText);
+
+    // event
+    google.maps.event.addDomListener(controlUI, 'click', function(){
+        window.open("./embed.html", "_self");
+    });
 }

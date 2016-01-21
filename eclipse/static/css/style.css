@@ -6,7 +6,7 @@ html {
 }
 body {
   /* Margin bottom by footer height */
-  margin-bottom: 50px;
+  margin-bottom: 60px;
 }
 
 .footer {
@@ -14,7 +14,7 @@ body {
     bottom: 0;
     width: 100%;
     /* Set the fixed height of the footer here */
-    height: 50px;
+    height: 60px;
     background-color: #fff;
 }
 
@@ -23,7 +23,7 @@ body > .container {
 }
 
 .container .text-muted {
-    text-align: center;
+    text-align: right;
     margin: 30px 0;
 }
 
