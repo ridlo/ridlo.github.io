@@ -11,7 +11,7 @@ function initMap() {
 
   var contentString = '<p><b>Imah Noong</b></p>',+
       '<p>Komunitas Imah Noong menyelenggarakan pengamatan publik di Pangkal Pinang, kegiatan ini meliputi seminar umum pada tanggal 8 Maret 2016 dan observasi bersama pada tanggal 9 Maret 2016</p>'+
-      '<p><b>Status</b>: Open for public"<p>'+
+      '<p><b>Status</b>: Open for public"</p>'+
       '<p><b>CP</b>: Paijo (081320918028)</p>';
 
   var infowindow = new google.maps.InfoWindow({
