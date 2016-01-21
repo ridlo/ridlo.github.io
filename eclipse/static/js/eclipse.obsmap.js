@@ -5,16 +5,11 @@
 function initMap() {
   var indo = {lat: -2.760853, lng: 117.173719};
   var map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 3,
+    zoom: 5,
     center: indo
   });
 
-  var contentString = '<div id="content">'+
-      '<div id="siteNotice">'+
-      '</div>'+
-      '<h1 id="firstHeading" class="firstHeading">Uluru</h1>'+
-      '<div id="bodyContent">'+
-      '<p><b>Uluru</b>, also referred to as <b>Ayers Rock</b>, is a large ' +
+  var contentString = '<p><b>Uluru</b>, also referred to as <b>Ayers Rock</b>, is a large ' +
       'sandstone rock formation in the southern part of the '+
       'Northern Territory, central Australia. It lies 335&#160;km (208&#160;mi) '+
       'south west of the nearest large town, Alice Springs; 450&#160;km '+
@@ -26,9 +21,7 @@ function initMap() {
       'Heritage Site.</p>'+
       '<p>Attribution: Uluru, <a href="https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">'+
       'https://en.wikipedia.org/w/index.php?title=Uluru</a> '+
-      '(last visited June 22, 2009).</p>'+
-      '</div>'+
-      '</div>';
+      '(last visited June 22, 2009).</p>';
 
   var infowindow = new google.maps.InfoWindow({
     content: contentString,
@@ -36,7 +29,7 @@ function initMap() {
   });
 
   var marker = new google.maps.Marker({
-    position: uluru,
+    position: indo,
     map: map,
     title: 'Palangkaraya'
   });
