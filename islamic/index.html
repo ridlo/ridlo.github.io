@@ -39,54 +39,12 @@
     
     <div class="container">
       <div class="row topContent">
-        <div class="col-md-4 card">
-          <div class="panel panel-info face front">
-            <div class="panel-heading">
-              Qibla Finder
-              <div class="btn pull-right flip"><strong>&deg; &#39; &#39;&#39;</strong></div>
-            </div>
-            <div class="panel-body" style="padding-top:15px">
-              <p style="font-family: Roboto; color:#a0a0a0">Enter your location here OR drag <strong>Mas Jo</strong> on the map</p>
-              <form class="form-horizontal" id="formPanelDeg">
-                <div class="input-group" style="margin-bottom: 15px"><span class="input-group-addon">&phi;</strong></span><input type="number" class="form-control" id="latdeg" placeholder="Latitude in degree"></div>
-                <div class="input-group" style="margin-bottom: 15px"><span class="input-group-addon">&nbsp;&lambda;</span><input type="number" class="form-control" id="longdeg" placeholder="Longitude in degree"></div>
-              </form>
-              <form class="form-inline">
-                <div class="col-md-3 input-group" style="margin-bottom: 15px"><button type="button" class="btn btn-primary" onclick="getQibla()">Find Qibla</button></div>
-                <div class="col-md-3 input-group" style="margin-bottom: 15px; margin-left= 5px;"><button type="button" class="btn btn-default" onclick="resetForm()">Clear</button></div>
-              </form>
-              <div id="qiblaMessage"></div>     
-            </div>
-          </div>
-
-          <div class="panel panel-info face back">
-            <div class="panel-heading">
-              Qibla Finder
-              <div class="btn pull-right flip"><strong>&deg;</strong></div>
-            </div>
-            <div class="panel-body" style="padding-top:15px">
-              <p style="font-family: Roboto; color:#a0a0a0">Enter your location here OR drag <strong>Tuzki</strong> on the map</p>
-                <form class="form-inline" id="formPanelMin">
-                  <div class="col-md-4 input-group" style="margin-bottom: 15px; margin-right: 5px;"><span class="input-group-addon">&phi;</strong></span><input type="number" class="form-control" id="latDeg" placeholder="&deg;"></div>
-                  <div class="col-md-3 input-group" style="margin-bottom: 15px; margin-right: 5px;"><input type="number" class="form-control" id="latMin" placeholder="&#39;"></div>
-                  <div class="col-md-3 input-group" style="margin-bottom: 15px; margin-right: 5px;"><input type="number" class="form-control" id="latSec" placeholder="&#39;&#39;"></div>
-                  <div class="col-md-4 input-group" style="margin-bottom: 15px; margin-right: 5px;"><span class="input-group-addon">&nbsp;&lambda;</strong></span><input type="number" class="form-control" id="lonDeg" placeholder="&deg;"></div>
-                  <div class="col-md-3 input-group" style="margin-bottom: 15px; margin-right: 5px;"><input type="number" class="form-control" id="lonMin" placeholder="&#39;"></div>
-                  <div class="col-md-3 input-group" style="margin-bottom: 15px; margin-right: 5px;"><input type="number" class="form-control" id="lonSec" placeholder="&#39;&#39;"></div>
-                  <div class="col-md-3 input-group" style="margin-bottom: 15px"><button type="button" class="btn btn-primary" onclick="getQiblaMin()">Find Qibla</button></div>
-                  <div class="col-md-3 input-group" style="margin-bottom: 15px; margin-left= 5px;"><button type="button" class="btn btn-default" onclick="resetForm()">Clear</button></div>
-                  <div id="qiblaMessageMin"></div>
-                </form>
-            </div>
-          </div>
-        </div> <!-- input panel -->
-
         <input id="pac-input" class="controls" type="text" placeholder="Search Place"> <!-- search box -->
-        <div class="col-md-8"><div class="embed-responsive embed-responsive-16by9" id="qiblaMap"></div></div> <!-- qiblaMap -->
+        <div class="col-md-8 col-md-offset-2"><div class="embed-responsive embed-responsive-16by9" id="qiblaMap"></div></div> <!-- qiblaMap -->
       </div> <!-- map row -->
 
       <div class="row top5">
-        <div class="col-md-2 col-md-offset-4">
+        <div class="col-md-2 col-md-offset-2">
           <div class="panel panel-info">
             <div class="panel-heading" style="text-align: center">Latitude</div>
             <div class="panel-body" style="text-align: center" id="lat"></div>
@@ -137,6 +95,7 @@ dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script type="text/javascript" src="static/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="static/js/QiblaFinder.js"></script>
+
     
   <footer class="footer">
     <div class="container">

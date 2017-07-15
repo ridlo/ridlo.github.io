@@ -26,6 +26,12 @@ var kaabaMarker;
 var locMarker;
 var qiblaMap;
 
+// default position
+var pos = { 
+  lat: -7.7409531,
+  lng: 109.5590196
+};
+
 
 // kaaba icon setting
 var iconKaaba = {
@@ -43,10 +49,16 @@ var iconLoc = {
 
 // init function for google maps
 function initialize(){
+
+    var contentString = '<strong>Hello</strong>, this is Mas Jo!<br>Have you prayed?';
+    var infowindow = new google.maps.InfoWindow({
+        content: contentString
+    });
+
     // maps Options
     var mapOptions = {
         zoom: 10,
-        center: new google.maps.LatLng(-7.7409531,109.5590196), // ! using Cookies?
+        center: new google.maps.LatLng(pos),
         mapTypeId:google.maps.MapTypeId.ROADMAP,
         zoomControl: true
     };
@@ -68,19 +80,12 @@ function initialize(){
         icon: iconLoc,
         crossOnDrag: false,
         draggable: true,
-        position: new google.maps.LatLng(-7.7409531,109.5590196)
+        position: new google.maps.LatLng(pos)
     });
 
     // minimum "bound" between two coordinates
     var defaultBounds = new google.maps.LatLngBounds(kaabaMarker.getPosition(), locMarker.getPosition());
     qiblaMap.fitBounds(defaultBounds);
-
-
-    var contentString = '<strong>Hello</strong>, this is Mas Jo!<br>Have you prayed?';
-
-    var infowindow = new google.maps.InfoWindow({
-        content: contentString
-    });
 
     // event listener
     // always draw great circle
@@ -211,8 +216,31 @@ function exitFSControl(controlDiv, map){
 }
 
 
+// Try HTML5 geolocation.
+function getloc(){
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position){
+            pos = {
+                lat: position.coords.latitude,
+                lng: position.coords.longitude
+            };
+            console.log(pos);
+            initialize();
+        }, function (error) { 
+            if (error.code == error.PERMISSION_DENIED)
+                console.log("you denied me :-(");
+                initialize();
+        });
+    } else {
+      // Browser doesn't support Geolocation
+      console.log("Browser doesn't support Geolocation");
+      initialize();
+    }
+}
+
+
 // add DOM Listener on window load
-google.maps.event.addDomListener(window, 'load', initialize);
+google.maps.event.addDomListener(window, 'load', getloc);
 
 
 /************** Own Calculator: Spherical Earth ************/
