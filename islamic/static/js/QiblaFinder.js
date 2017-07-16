@@ -37,12 +37,12 @@ var pos = {
 var iconKaaba = {
     url: "static/images/icon-kaaba.png",
     title: "Kaaba Position",
-    scale: 0.5
+    scale: 0.25
 };
 
 var iconLoc = {
     url: 'static/images/icon-shalat2.gif',
-    scale: 1
+    scale: 0.5
 };
 
 
