@@ -238,7 +238,8 @@ function getloc(){
 
 
 // add DOM Listener on window load
-google.maps.event.addDomListener(window, 'load', getloc);
+// google.maps.event.addDomListener(window, 'load', getloc);
+google.maps.event.addDomListener(window, 'load', initialize);
 
 
 /************** Own Calculator: Spherical Earth ************/
