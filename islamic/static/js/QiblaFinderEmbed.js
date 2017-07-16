@@ -58,7 +58,11 @@ function initialize(){
         zoom: 10,
         center: new google.maps.LatLng(pos),
         mapTypeId:google.maps.MapTypeId.ROADMAP,
-        zoomControl: true
+        zoomControl: true,
+        fullscreenControl: true,
+        fullscreenControlOptions: {
+            position: google.maps.ControlPosition.RIGHT_TOP
+        }
     };
 
     // init map
