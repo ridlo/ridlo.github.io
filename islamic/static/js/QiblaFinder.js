@@ -135,12 +135,12 @@ function initialize(){
 
     // Bias the SearchBox results towards places that are within the bounds of the
     // current map's viewport.
-    qiblaMap.event.addListener('bounds_changed', function(){
+    google.maps.event.addListener('bounds_changed', function(){
         searchBox.setBounds(qiblaMap.getBounds());
     });
 
     // search event handler
-    searchBox.event.addListener('places_changed', function(){
+    google.maps.event.addListener('places_changed', function(){
         var places = searchBox.getPlaces();
 
         if (places.length == 0){return;}
