@@ -122,28 +122,28 @@ function initialize(){
 
     // search box
     var input = (document.getElementById('pac-input'));
-
+    var searchBox = new google.maps.places.SearchBox(input);
     // push input controls position on Map
     qiblaMap.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
 
-    var searchBox = new google.maps.places.SearchBox(input);
+    // Bias the SearchBox results towards places that are within the bounds of the
+    // current map's viewport.
+    qiblaMap.event.addListener('bounds_changed', function(){
+        searchBox.setBounds(qiblaMap.getBounds());
+    });
 
     // search event handler
-    google.maps.event.addListener(searchBox, 'places_changed', function(){
+    searchBox.event.addListener('places_changed', function(){
         var places = searchBox.getPlaces();
+        
         if (places.length == 0){return;}
+
         for (var i=0, place; place=places[i]; i++){
             locMarker.setPosition(place.geometry.location); // get location of place
             qiblaMap.panTo(locMarker.getPosition()); // move to the center
             qiblaMap.setZoom(15);} // change zoom 
     });
 
-    // Bias the SearchBox results towards places that are within the bounds of the
-    // current map's viewport.
-    google.maps.event.addListener(qiblaMap, 'bounds_changed', function(){
-        var bounds = qiblaMap.getBounds();
-        searchBox.setBounds(bounds);
-    });
 
     /* ---------------------- */
     // add exit full screen botton

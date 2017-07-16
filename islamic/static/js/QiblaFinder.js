@@ -44,7 +44,7 @@ var iconKaaba = {
 
 var iconLoc = {
     url: 'static/images/icon-shalat2.gif',
-    scaledSize: new google.maps.Size(50, 50)
+    size: new google.maps.Size(50, 50)
 };
 
 
@@ -142,7 +142,7 @@ function initialize(){
     // search event handler
     searchBox.event.addListener('places_changed', function(){
         var places = searchBox.getPlaces();
-        
+
         if (places.length == 0){return;}
 
         for (var i=0, place; place=places[i]; i++){
