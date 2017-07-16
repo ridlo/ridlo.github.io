@@ -9,6 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Islamic</title>
 
+    <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/9.8.1/css/bootstrap-slider.css" ref="stylesheet"> -->
     <link href="static/css/bootstrap.min.css" rel="stylesheet">
     <link href="static/css/style.css" rel="stylesheet">
 
@@ -40,11 +41,49 @@
     <div class="container">
       <div class="row topContent">
         <input id="pac-input" class="controls" type="text" placeholder="Search Place"> <!-- search box -->
-        <div class="col-md-8 col-md-offset-2"><div class="embed-responsive embed-responsive-16by9" id="qiblaMap"></div></div> <!-- qiblaMap -->
+        <div class="col-md-8 col-md-offset-1">
+          <div class="embed-responsive embed-responsive-16by9" id="qiblaMap"></div>
+        </div> <!-- qiblaMap -->
+
+        <div class="col-md-2">
+          <div class="row">
+            <div class="panel panel-success">
+              <div class="panel-heading" style="text-align: center">Prayers</div>
+              <div class="panel-body" style="text-align: center" id="lat">
+                Subuh
+
+                Dzuhur
+
+                Ashar
+
+                Maghrib
+
+                Isya
+
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="panel panel-success">
+              <div class="panel-heading" style="text-align: center">Sun for Kibla Finder</div>
+              <div class="panel-body" style="text-align: center" id="lat">
+
+                Searah
+
+                Berlawanan arah
+
+                Tegak lurus
+
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div> <!-- map row -->
 
       <div class="row top5">
-        <div class="col-md-2 col-md-offset-2">
+        <div class="col-md-2 col-md-offset-1">
           <div class="panel panel-info">
             <div class="panel-heading" style="text-align: center">Latitude</div>
             <div class="panel-body" style="text-align: center" id="lat"></div>
@@ -73,33 +112,65 @@
         </div>
       </div> <!-- panel row -->
 
+      <div class="row top5">
+        <div class="col-md-8 col-md-offset-1">
+          <div class="panel panel-warning">
+            <div class="panel-heading" style="text-align: center">Notes:</div>
+            <div class="panel-body" style="text-align: center" id="lat"></div>
+          </div>
+        </div>
+      </div>
 
-<div id="disqus_thread"></div>
-<script type="text/javascript">
-/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-var disqus_shortname = 'qiblafinder'; // required: replace example with your forum shortname
+<!--       <div class="row top5">
+        <div class="col-md-8 col-md-offset-2">
+          
+              <p>
+              <b>R</b> <input type="text" class="span2" value="" data-slider-min="0" data-slider-max="255" data-slider-step="1" data-slider-value="128" data-slider-id="RC" id="R" data-slider-tooltip="hide" data-slider-handle="square" />
+              </p>
+              <p>
+              <b>G</b> <input type="text" class="span2" value="" data-slider-min="0" data-slider-max="255" data-slider-step="1" data-slider-value="128" data-slider-id="GC" id="G" data-slider-tooltip="hide" data-slider-handle="round" />
+              </p>
+              <p>
+              <b>B</b> <input type="text" class="span2" value="" data-slider-min="0" data-slider-max="255" data-slider-step="1" data-slider-value="128" data-slider-id="BC" id="B" data-slider-tooltip="hide" data-slider-handle="triangle" />
+              </p>
+              <div id="RGB"></div>
+        </div>
+      </div> -->
 
-/* * * DON'T EDIT BELOW THIS LINE * * */
-(function() {
-var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-})();
-</script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+
+      <div id="disqus_thread"></div>
+      <script type="text/javascript">
+      /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+      var disqus_shortname = 'qiblafinder'; // required: replace example with your forum shortname
+
+      /* * * DON'T EDIT BELOW THIS LINE * * */
+      (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+      </script>
+      <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+      <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
     </div> <!-- main container -->
 
     <!-- Script -->
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script type="text/javascript" src="static/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="static/js/QiblaFinder.js"></script>
+   <!--  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/9.8.1/bootstrap-slider.js"></script>
+    <script type="text/javascript" src="static/js/QiblaFinder.js"></script> -->
+    <script type="text/javascript" src="static/js/suncalc.js"></script>
+    <script type="text/javascript" src="static/js/view.js"></script>
 
     
   <footer class="footer">
     <div class="container">
-      <p class="text-muted">Currently v0.1 &nbsp; &middot; &nbsp; Written by <a href="http://astrokode.wordpress.com/">Ridlo W. Wibowo</a> &nbsp; &middot; &nbsp; Icon by Arif R. Abriyanto</p>
+      <p class="text-muted">Currently v0.2 &nbsp; &middot; &nbsp; Written by <a href="http://astrokode.wordpress.com/">Ridlo W. Wibowo</a> &nbsp; &middot; &nbsp; Icon by Arif R. Abriyanto</p>
     </div>
   </footer>
 

@@ -17,6 +17,7 @@ hr {
 .top5 {margin-top: 5px;}
 .top10 {margin-top: 10px;}
 .top20 {margin-top: 20px;}
+.top50 {margin-top: 50px;}
 
 .controls {
     margin-top: 16px;
@@ -127,3 +128,4 @@ hr {
     padding-right: 15px;
     padding-left: 15px;
 }
+

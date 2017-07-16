@@ -26,7 +26,6 @@ var kaabaMarker;
 var locMarker;
 var qiblaMap;
 
-
 // default position
 var pos = { 
   lat: -7.7409531,
@@ -360,6 +359,6 @@ function resetForm(){
     $('#formPanelMin').trigger('reset');
     document.getElementById('qiblaMessageMin').innerHTML = "";
     document.getElementById('qiblaMessage').innerHTML = "";
-}
+};
 
 
