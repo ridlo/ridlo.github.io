@@ -142,7 +142,6 @@ function initialize(){
 
     // init map
     qiblaMap = new google.maps.Map(document.getElementById('qiblaMap'), mapOptions);
-    qiblaMap.panTo(locMarker.getPosition());
 
     // marker
     kaabaMarker = new google.maps.Marker({
