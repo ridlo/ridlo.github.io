@@ -256,8 +256,6 @@ function update(){
         azimuthText = " W of N";}
     document.getElementById('direction').innerHTML = '<strong style="color: #AA5544">' + Math.abs(direction.toFixed(3))  + '&deg;</strong>' + azimuthText;
 
-    console.log(locpos.lat);
-
     //
     updatePanel(datenow, locpos.lat(), locpos.lng(), -1*direction);
 }

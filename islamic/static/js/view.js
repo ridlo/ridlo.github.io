@@ -1,5 +1,5 @@
 // var date = new Date();
-// var lat = -33.4486;
+// var lat = -33.;
 // var lng = -70.66636;
 
 // function converttime(datetime){
@@ -53,8 +53,8 @@
 
 
 // Kaaba Time
-// var sunpos = SunCalc.kiblaTimes(date, lat, lng, -81);
-
+// var sunpos = SunCalc.kiblaTimes(date, lat, lng, 180);
+// console.log(sunpos);
 // document.getElementById("indir").innerHTML = converttime2(sunpos['indir']);
 // document.getElementById("outdir").innerHTML = converttime2(sunpos['outdir']);
 // document.getElementById("rightangle1").innerHTML = converttime2(sunpos['rightangle1']);
