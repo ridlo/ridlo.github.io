@@ -74,12 +74,12 @@
         <div class="col-md-2">
           <div class="row">
             <div class="panel panel-success">
-              <div class="panel-heading" style="text-align: center">Sun for Qibla Finder</div>
+              <div class="panel-heading" style="text-align: center">Sun for Qibla Finder <br>(for today)</div>
               <div class="panel-body" style="text-align: center" id="sunkibla">
-                  <p class="sunforkibla list-group-item">In Sun direction<br><a class="no-link" id="indir"></a> </p>
-                  <p class="sunforkibla list-group-item">In shadow direction<br><a class="no-link" id="outdir"></a> </p>
-                  <p class="sunforkibla list-group-item">&perp; CCW from the Sun direction<br><a class="no-link" id="rightangle1"></a> </p>
-                  <p class="sunforkibla list-group-item">&perp; CW from the Sun direction<br><a class="no-link" id="rightangle2"></a> </p>
+                  <p class="sunforkibla list-group-item">at Sun direction<br><a class="no-link" id="indir"></a> </p>
+                  <p class="sunforkibla list-group-item">at shadow direction<br><a class="no-link" id="outdir"></a> </p>
+                  <p class="sunforkibla list-group-item">&perp; ccw from the Sun direction<br><a class="no-link" id="rightangle1"></a> </p>
+                  <p class="sunforkibla list-group-item">&perp; cw from the Sun direction<br><a class="no-link" id="rightangle2"></a> </p>
               </div>
             </div>
           </div>
@@ -120,27 +120,29 @@
       <div class="row top5">
         <div class="col-md-8 col-md-offset-2">
           <div class="panel panel-danger">
-            <div class="panel-heading" style="text-align: center">Notes:</div>
-            <div class="panel-body" style="text-align: center" id="lat"></div>
+            <div class="panel-heading" style="text-align: left">Notes:</div>
+            <div class="panel-body" style="text-align: left" id="lat">
+              <h4>Prayer time</h4>
+              <ul>
+                <li>The Sun position is calculated using the simplest algorithm.</li>
+                <li>Subuh and Isya time is using the criteria from KEMENAG Indonesia (Ministry of Religious Affairs, Indonesia), i.e. when the Sun at 20&deg; and 18&deg; below the horizon.</li> 
+                <li>Dzuhur time is when the Sun at meredian + manual correction.</li>
+                <li>Ashar time is using criteria from majority of schools (including Shafi'i, Maliki, Ja'fari, and Hanbali) i.e. when the length of any object's shadow equals the length of the object itself plus the length of that object's shadow at noon.</li>
+                <li>Maghrib time is when the Sun disk below the horizon. Correction of refraction included. For altitude correction, I assume the place is 500 m above the sea level.
+                <li>Manual correction added to the prayer time, i.e [2, 3, 2, 2, 2] minutes. This tuning is commonly used in practice, for safety and historical reason, e.g. if your clock is not well calibrated.
+              </ul>
+              <hr>
+              <h4>Qibla finder</h4>
+              <ul>
+                <li>The simplest way to find Qibla direction is using the map above. You can use Search Box inside the map for fast searching.</li>
+                <li>You can click-and-drag the Mas Jo icon to change the location. You can also use right click in the map. Left click to the icon will move it to the center of the map.</li>
+                <li>Zoom in can be used to easily find the correct direction. You can use the road or building as reference to find the correct qibla direction (without good compass or accurate GPS).</li>
+                <li>Sometimes, it is possible to use the Sun to find the qibla direction. The "Sun for Qibla finder" panel gives the time(s) when you can find the qibla direction using the Sun. You can use a standing stick (vertical to the ground) and look at its shadow due to the Sun light. 'Sun direction' means the time when the Sun azimuth is exactly at the Qibla direction. 'Shadow direction' means that the qibla direction is at the opposite of the Sun azimuth/direction. You can also use the time when the Sun azimuth is exactly perpendicular with the Qibla direction (clockwise/counter-clockwise).</li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
-
-<!--       <div class="row top5">
-        <div class="col-md-8 col-md-offset-2">
-          
-              <p>
-              <b>R</b> <input type="text" class="span2" value="" data-slider-min="0" data-slider-max="255" data-slider-step="1" data-slider-value="128" data-slider-id="RC" id="R" data-slider-tooltip="hide" data-slider-handle="square" />
-              </p>
-              <p>
-              <b>G</b> <input type="text" class="span2" value="" data-slider-min="0" data-slider-max="255" data-slider-step="1" data-slider-value="128" data-slider-id="GC" id="G" data-slider-tooltip="hide" data-slider-handle="round" />
-              </p>
-              <p>
-              <b>B</b> <input type="text" class="span2" value="" data-slider-min="0" data-slider-max="255" data-slider-step="1" data-slider-value="128" data-slider-id="BC" id="B" data-slider-tooltip="hide" data-slider-handle="triangle" />
-              </p>
-              <div id="RGB"></div>
-        </div>
-      </div> -->
 
 
 
@@ -181,7 +183,7 @@
     
   <footer class="footer">
     <div class="container">
-      <p class="text-muted">Currently v0.2 &nbsp; &middot; &nbsp; Written by <a href="http://astrokode.wordpress.com/">Ridlo W. Wibowo</a> &nbsp; &middot; &nbsp; Icon by Arif R. Abriyanto</p>
+      <p class="text-muted">Currently v0.2 &nbsp; &middot; &nbsp; Written by <a href="http://ridlow.wordpress.com/">Ridlo W. Wibowo</a> &nbsp; &middot; &nbsp; Icon by Arif R. Abriyanto</p>
     </div>
   </footer>
 
