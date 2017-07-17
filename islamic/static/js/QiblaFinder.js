@@ -68,7 +68,7 @@ function converttime2(datetime){
 };
 
 
-function updatePanel(date, lat, lng){
+function updatePanel(date, lat, lng, kaabadir){
     // Pray Time
     var praytime = SunCalc.prayTimes(date, lat, lng);
     console.log(lat);
@@ -83,7 +83,7 @@ function updatePanel(date, lat, lng){
 
 
     // Kaaba Time
-    var sunpos = SunCalc.kiblaTimes(date, lat, lng, -81);
+    var sunpos = SunCalc.kiblaTimes(date, lat, lng, kaabadir);
 
     document.getElementById("indir").innerHTML = converttime2(sunpos['indir']);
     document.getElementById("outdir").innerHTML = converttime2(sunpos['outdir']);
@@ -259,7 +259,7 @@ function update(){
     console.log(locpos.lat);
 
     //
-    updatePanel(datenow, locpos.lat(), locpos.lng());
+    updatePanel(datenow, locpos.lat(), locpos.lng(), -1*direction);
 }
 
 

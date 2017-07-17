@@ -52,7 +52,7 @@
 // document.getElementById("isya").innerHTML = converttime(praytime['isya']);
 
 
-// // Kaaba Time
+// Kaaba Time
 // var sunpos = SunCalc.kiblaTimes(date, lat, lng, -81);
 
 // document.getElementById("indir").innerHTML = converttime2(sunpos['indir']);
