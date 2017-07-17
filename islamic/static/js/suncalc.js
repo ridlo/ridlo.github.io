@@ -261,7 +261,7 @@ function finddirection(date, lat, lng, dirsearch){
 function bisection(initmin, initmax, lat, lng, dirsearch, itermax=10000, dirtol=0.000001){
     var i = 0,
         stop = false,
-        mini = initmin,
+        mini = initmin ,
         maxi = initmax,
         resmin, resmax, newi, newres, sol;
 
@@ -279,17 +279,22 @@ function bisection(initmin, initmax, lat, lng, dirsearch, itermax=10000, dirtol=
             newi = fromJulian(newi) // convert to date format again
             newres = finddirection(newi, lat, lng, dirsearch)
             if (newres*resmax < 0.0){
-                mini = newi
+                mini = newi;
+            }
+            else if (newres == 0){
+                stop = true;
+                console.log(newres);
+                sol = newi;
             }
             else{
                 maxi = newi
             }
 
             if (abs(newres) < dirtol){
-                stop = true
+                stop = true;
                 //console.log(newres)
                 //console.log(i)
-                sol = newi
+                sol = newi;
             }
 
         i += 1
