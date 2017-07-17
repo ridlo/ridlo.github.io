@@ -299,23 +299,19 @@ function fullScreenControl(controlDiv, map){
 function getloc(){
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function(position){
-            pos = {
-                lat: position.coords.latitude,
-                lng: position.coords.longitude
-            };
+            pos = {lat: position.coords.latitude, lng: position.coords.longitude};
             console.log(pos);
-            // initialize();
+            initialize();
         }, function (error) { 
             if (error.code == error.PERMISSION_DENIED)
                 console.log("you denied me :-(");
-                // initialize();
+                initialize();
         });
     } else {
       // Browser doesn't support Geolocation
       console.log("Browser doesn't support Geolocation");
-      // initialize();
+      initialize();
     }
-    initialize();
 }
 
 // add DOM Listener on window load
