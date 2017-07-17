@@ -4,8 +4,8 @@ var lng = -70.66636;
 
 var times = SunCalc.getTimes(date, lat, lng);
 console.log(times);
-var pos = SunCalc.getPosition(date, lat, lng)
-console.log(pos)
+// var pos = SunCalc.getPosition(date, lat, lng)
+// console.log(pos)
 
 // Pray Time
 var praytime = SunCalc.prayTimes(date, lat, lng);
