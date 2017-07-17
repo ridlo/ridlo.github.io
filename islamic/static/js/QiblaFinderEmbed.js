@@ -103,7 +103,7 @@ function initialize(){
 
     google.maps.event.addListener(kaabaMarker, 'click', function(){
         qiblaMap.panTo(kaabaMarker.getPosition());
-        console.log(kaabaMarker.getPosition());
+        // console.log(kaabaMarker.getPosition());
     }); // left click on kaaba marker: map center
 
     google.maps.event.addListener(qiblaMap, 'rightclick', function(event){

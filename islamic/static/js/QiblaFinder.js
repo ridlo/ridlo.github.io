@@ -26,6 +26,75 @@ var kaabaMarker;
 var locMarker;
 var qiblaMap;
 
+var datenow = new Date();
+
+function converttime(datetime){
+    if (isNaN(datetime)){
+        return "Invalid";
+    }
+    else{
+        var h = datetime.getHours();
+        var m = datetime.getMinutes();
+        var hour = h;
+        var min = m;
+        if (h < 10){
+            hour = '0' + h;
+        }
+        if (m < 10){
+            min = '0' + m;
+        }
+        return hour + ":" + min + " " + datetime.toString().match(/\(([A-Za-z\s].*)\)/)[1];
+    }
+};
+
+
+function converttime2(datetime){
+    if (isNaN(datetime)){
+        return "-";
+    }
+    else{
+        var h = datetime.getHours();
+        var m = datetime.getMinutes();
+        var hour = h;
+        var min = m;
+        if (h < 10){
+            hour = '0' + h;
+        }
+        if (m < 10){
+            min = '0' + m;
+        }
+        return hour + ":" + min + " " + datetime.toString().match(/\(([A-Za-z\s].*)\)/)[1];
+    }
+};
+
+
+function updatePanel(date, lat, lng){
+    // Pray Time
+    var praytime = SunCalc.prayTimes(date, lat, lng);
+    console.log(lat);
+    console.log(lng);
+    // console.log(praytime);
+
+    document.getElementById("subuh").innerHTML = converttime(praytime['subuh']);
+    document.getElementById("dzuhur").innerHTML = converttime(praytime['dzuhur']);
+    document.getElementById("ashar").innerHTML = converttime(praytime['ashar']);
+    document.getElementById("maghrib").innerHTML = converttime(praytime['maghrib']);
+    document.getElementById("isya").innerHTML = converttime(praytime['isya']);
+
+
+    // Kaaba Time
+    var sunpos = SunCalc.kiblaTimes(date, lat, lng, -81);
+
+    document.getElementById("indir").innerHTML = converttime2(sunpos['indir']);
+    document.getElementById("outdir").innerHTML = converttime2(sunpos['outdir']);
+    document.getElementById("rightangle1").innerHTML = converttime2(sunpos['rightangle1']);
+    document.getElementById("rightangle2").innerHTML = converttime2(sunpos['rightangle2']);
+}
+
+
+//-----------------------------------------
+
+
 // default position
 var pos = { 
   lat: -7.7409531,
@@ -110,7 +179,7 @@ function initialize(){
 
     google.maps.event.addListener(kaabaMarker, 'click', function(){
         qiblaMap.panTo(kaabaMarker.getPosition());
-        console.log(kaabaMarker.getPosition());
+        // console.log(kaabaMarker.getPosition());
     }); // left click on kaaba marker: map center
 
     google.maps.event.addListener(qiblaMap, 'rightclick', function(event){
@@ -165,7 +234,9 @@ function initialize(){
 
 // update function for position_changed event
 function update(){
-    var greatCirclePath = [locMarker.getPosition(), kaabaMarker.getPosition()];
+    var locpos = locMarker.getPosition();
+    var kaabapos = kaabaMarker.getPosition();
+    var greatCirclePath = [locpos, kaabapos];
     geoPoly.setPath(greatCirclePath);
 
     var direction = google.maps.geometry.spherical.computeHeading(greatCirclePath[0], greatCirclePath[1]);
@@ -184,6 +255,11 @@ function update(){
     else{
         azimuthText = " W of N";}
     document.getElementById('direction').innerHTML = '<strong style="color: #AA5544">' + Math.abs(direction.toFixed(3))  + '&deg;</strong>' + azimuthText;
+
+    console.log(locpos.lat);
+
+    //
+    updatePanel(datenow, locpos.lat(), locpos.lng());
 }
 
 
@@ -246,6 +322,30 @@ function getloc(){
 // add DOM Listener on window load
 // google.maps.event.addDomListener(window, 'load', getloc);
 //google.maps.event.addDomListener(window, 'load', initialize);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /************** Own Calculator: Spherical Earth ************/
