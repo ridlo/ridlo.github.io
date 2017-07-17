@@ -40,41 +40,45 @@
     
     <div class="container">
       <div class="row topContent">
-        <input id="pac-input" class="controls" type="text" placeholder="Search Place"> <!-- search box -->
-        <div class="col-md-8 col-md-offset-1">
-          <div class="embed-responsive embed-responsive-16by9" id="qiblaMap"></div>
-        </div> <!-- qiblaMap -->
-
         <div class="col-md-2">
           <div class="row">
             <div class="panel panel-success">
-              <div class="panel-heading" style="text-align: center">Prayers</div>
+              <div class="panel-heading" style="text-align: center">Prayers <div id="prayerdate"></div>
+                <script>
+                    var d = new Date();
+                    var days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+                    document.getElementById("prayerdate").innerHTML = days[d.getDay()] + ", " + d.getDate() + "-" + (d.getMonth() + 1) + "-" + d.getFullYear();
+                </script>
+              </div>
               <div class="panel-body" style="text-align: center" id="praytime">
-                Subuh
-
-                Dzuhur
-
-                Ashar
-
-                Maghrib
-
-                Isya
+                <div class="list-group">
+                  <p class="list-group-item">Subuh : <a class="no-link" id="subuh"></a> </p>
+                  <p class="list-group-item">Dzuhur : <a class="no-link" id="dzuhur"></a> </p>
+                  <p class="list-group-item">Ashar : <a class="no-link" id="ashar"></a> </p>
+                  <p class="list-group-item">Maghrib : <a class="no-link" id="maghrib"></a> </p>
+                  <p class="list-group-item">Isya : <a class="no-link" id="isya"></a> </p>
+                </div>
 
               </div>
             </div>
           </div>
+        </div>
 
+        <div class="col-md-8">
+        <input id="pac-input" class="controls" type="text" placeholder="Search Place"> <!-- search box -->
+          <div class="embed-responsive embed-responsive-16by9" id="qiblaMap"></div>
+        </div> <!-- qiblaMap -->
+
+
+        <div class="col-md-2">
           <div class="row">
             <div class="panel panel-success">
               <div class="panel-heading" style="text-align: center">Sun for Qibla Finder</div>
               <div class="panel-body" style="text-align: center" id="sunkibla">
-
-                Searah
-
-                Berlawanan arah
-
-                Tegak lurus
-
+                  <p class="sunforkibla list-group-item">In Sun direction<br><a class="no-link" id="indir"></a> </p>
+                  <p class="sunforkibla list-group-item">In shadow direction<br><a class="no-link" id="outdir"></a> </p>
+                  <p class="sunforkibla list-group-item">&perp; CCW from the Sun<br><a class="no-link" id="rightangle1"></a> </p>
+                  <p class="sunforkibla list-group-item">&perp; CW from the Sun<br><a class="no-link" id="rightangle2"></a> </p>
               </div>
             </div>
           </div>
@@ -83,7 +87,7 @@
       </div> <!-- map row -->
 
       <div class="row top5">
-        <div class="col-md-2 col-md-offset-1">
+        <div class="col-md-2 col-md-offset-2">
           <div class="panel panel-info">
             <div class="panel-heading" style="text-align: center">Latitude</div>
             <div class="panel-body" style="text-align: center" id="lat"></div>
@@ -113,8 +117,8 @@
       </div> <!-- panel row -->
 
       <div class="row top5">
-        <div class="col-md-8 col-md-offset-1">
-          <div class="panel panel-warning">
+        <div class="col-md-8 col-md-offset-2">
+          <div class="panel panel-danger">
             <div class="panel-heading" style="text-align: center">Notes:</div>
             <div class="panel-body" style="text-align: center" id="lat"></div>
           </div>

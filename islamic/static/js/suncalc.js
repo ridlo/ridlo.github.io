@@ -202,6 +202,7 @@ SunCalc.prayTimes = function (date, lat, lng) {
         i, len, time, Jset, Jrise;
 
 
+    // manual "correction"
     var corr = [2/1440, 3/1440, 2/1440, 2/1440, 2/1440] // in day
 
     var result = {
@@ -212,20 +213,36 @@ SunCalc.prayTimes = function (date, lat, lng) {
         'isya': 0
     };
 
-
+    // dzuhur
     result['dzuhur'] = fromJulian(Jnoon + corr[1]);
 
     // calculate set time using getSetJ (after transit)
+    // subuh
     var t = getSetJ(-20 * rad, lw, phi, dec, n, M, L);
     var subuh = Jnoon - (t - Jnoon); // invert
     result['subuh'] = fromJulian(subuh + corr[0]);
 
+    // maghrib
+    // and height correction
+    // for H = 500 m above sea level 
+    // height = 500
+    // heightcorr = acos(6378000/(height+6378000))
+    // heightcorr = heightcorr*4 // in min
+    // heightcorr = heightcorr/60/24 // in day
+    var heightcorr = 0.002; 
     var maghrib = getSetJ(-0.833 * rad, lw, phi, dec, n, M, L);
-    result['maghrib'] = fromJulian(maghrib + corr[3]);
+    result['maghrib'] = fromJulian(maghrib + heightcorr + corr[3]);
 
-    var ashar = getSetJ(0.0 * rad, lw, phi, dec, n, M, L);
-    result['ashar'] = fromJulian(ashar + corr[2]);
-
+    // ashar
+    // (Shafi'i, Maliki, Ja'fari, and Hanbali)
+    // h = 45 deg + length when noon
+    var x = atan(1, (1 + tan(abs(phi-dec))))
+    var ashar = acos( (sin(x) - sin(phi)*sin(dec))/(cos(phi)*cos(dec)) );
+    ashar = (1./15) * deg * ashar
+    //var ashar = Jnoon + ashar/24.0
+    result['ashar'] = fromJulian(Jnoon + ashar/24.0 + corr[2]);
+    
+    // isya
     var isya = getSetJ(-18.0 * rad, lw, phi, dec, n, M, L);
     result['isya'] = fromJulian(isya + corr[4]);
 
@@ -308,7 +325,7 @@ SunCalc.kiblaTimes = function(date, lat, lng, kiblaAzimuth){
     dirsearch = kiblaAzimuth - PI
     var outdir = bisection(initmin, initmax, lat, lng, dirsearch)
 
-    // right angle 1
+    // right angle 1 
     dirsearch = kiblaAzimuth - PI/2.
     var rigdir1 = bisection(initmin, initmax, lat, lng, dirsearch)
 
@@ -317,13 +334,14 @@ SunCalc.kiblaTimes = function(date, lat, lng, kiblaAzimuth){
     var rigdir2 = bisection(initmin, initmax, lat, lng, dirsearch)
 
     // HA sun in radian
-    console.log("Time Sun direction          : ", indir)
-    console.log("Time Shadow direction       : ", outdir)
-    console.log("Time Right angle counter-cw : ", rigdir1)
-    console.log("Time Right angle clockwise  : ", rigdir2)
+    var dirtime = {
+        'indir': indir,
+        'outdir' : outdir,
+        'rightangle1': rigdir1,
+        'rightangle2': rigdir2
+    };
 
-    // return SunCalc.getPosition(date, lat, lng);
-    return 0;
+    return dirtime;
 };
 
 //------------------------------------------

@@ -129,3 +129,13 @@ hr {
     padding-left: 15px;
 }
 
+.no-link{
+  pointer-events: none;
+  cursor: text;
+  text-decoration: none;
+  color: gray;
+}
+
+.sunforkibla{
+    size: -1;
+}
