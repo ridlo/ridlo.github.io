@@ -128,7 +128,7 @@ function initialize(){
     // maps Options
     var mapOptions = {
         zoom: 10,
-        center: new google.maps.LatLng(pos), // ! using Cookies?
+        center: new google.maps.LatLng(pos), 
         mapTypeId:google.maps.MapTypeId.ROADMAP,
         zoomControl: true,
         zoomControlOptions: {
@@ -142,6 +142,7 @@ function initialize(){
 
     // init map
     qiblaMap = new google.maps.Map(document.getElementById('qiblaMap'), mapOptions);
+    qiblaMap.panTo(locMarker.getPosition());
 
     // marker
     kaabaMarker = new google.maps.Marker({
