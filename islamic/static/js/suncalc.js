@@ -271,7 +271,7 @@ function bisection(initmin, initmax, lat, lng, dirsearch, itermax=10000, dirtol=
 
         if (resmin*resmax > 0){
             stop = true
-            console.log("No solution, impossible region")
+            // console.log("No solution, impossible region")
             sol = NaN
         }
         else{
@@ -287,8 +287,8 @@ function bisection(initmin, initmax, lat, lng, dirsearch, itermax=10000, dirtol=
 
             if (abs(newres) < dirtol){
                 stop = true
-                console.log(newres)
-                console.log(i)
+                //console.log(newres)
+                //console.log(i)
                 sol = newi
             }
 

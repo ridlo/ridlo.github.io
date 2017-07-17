@@ -71,8 +71,8 @@ function converttime2(datetime){
 function updatePanel(date, lat, lng, kaabadir){
     // Pray Time
     var praytime = SunCalc.prayTimes(date, lat, lng);
-    console.log(lat);
-    console.log(lng);
+    //console.log(lat);
+    //console.log(lng);
     // console.log(praytime);
 
     document.getElementById("subuh").innerHTML = converttime(praytime['subuh']);
@@ -304,17 +304,18 @@ function getloc(){
                 lng: position.coords.longitude
             };
             console.log(pos);
-            initialize();
+            // initialize();
         }, function (error) { 
             if (error.code == error.PERMISSION_DENIED)
                 console.log("you denied me :-(");
-                initialize();
+                // initialize();
         });
     } else {
       // Browser doesn't support Geolocation
       console.log("Browser doesn't support Geolocation");
-      initialize();
+      // initialize();
     }
+    initialize();
 }
 
 // add DOM Listener on window load
