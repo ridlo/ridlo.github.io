@@ -266,7 +266,7 @@ function finddirection(date, lat, lng, dirsearch){
 };
 
 // Bisection to search the correct time so that sun has azimuth dirsearch
-function bisection(initmin, initmax, lat, lng, dirsearch, tnoon, itermax=10000, dirtol=0.0001){
+function bisection(initmin, initmax, lat, lng, dirsearch, tnoon, itermax=10000, dirtol=0.00001){
     var i = 0,
         stop = false,
         mini = initmin,
