@@ -383,22 +383,22 @@ SunCalc.kiblaTimes = function(date, lat, lng, kiblaAzimuth){
 
     // sun direction
     var dirsearch = kiblaAzimuth 
-    console.log("indir")
+    //console.log("indir")
     var indir = bisection(initmin, initmax, lat, lng, dirsearch, tnoon)
     
     // shadow direction
     dirsearch = kiblaAzimuth - PI
-    console.log("out")
+    //console.log("out")
     var outdir = bisection(initmin, initmax, lat, lng, dirsearch, tnoon)
 
     // right angle 1 
     dirsearch = kiblaAzimuth - PI/2.
-    console.log("1")
+    //console.log("1")
     var rigdir1 = bisection(initmin, initmax, lat, lng, dirsearch, tnoon)
 
     // right angle 2
     dirsearch = kiblaAzimuth + PI/2.
-    console.log("2")
+    //console.log("2")
     var rigdir2 = bisection(initmin, initmax, lat, lng, dirsearch, tnoon)
 
     // HA sun in radian
