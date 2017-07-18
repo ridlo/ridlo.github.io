@@ -376,6 +376,7 @@ SunCalc.kiblaTimes = function(date, lat, lng, kiblaAzimuth){
         d   = toDays(date),
         c  = sunCoords(d)
 
+    swic = false;
     if (abs(phi) > abs(c.dec)){
         swic = true;
     }
