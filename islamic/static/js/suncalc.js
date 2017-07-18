@@ -260,8 +260,8 @@ function finddirection(date, lat, lng, dirsearch){
     // }
 
     if (swic){
-        if (dirsearch < 0){
-            dirsearch += 6.283185307179586;
+        if (azi < 0){
+            azi += 6.283185307179586;
         }
     }
     //console.log(azi*deg);
