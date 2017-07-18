@@ -253,17 +253,24 @@ SunCalc.prayTimes = function (date, lat, lng) {
 // Function to evaluate, zero means near the dirsearch
 function finddirection(date, lat, lng, dirsearch){
     var newpos = SunCalc.getPosition(date, lat, lng)
-    // console.log(azi)
-    return newpos['azimuth'] - dirsearch
+    var azi = newpos['azimuth']
+    if (azi < 0){
+        azi += 6.283185307179586; // + 2pi -> stay positive
+    }
+    return azi - dirsearch
 };
 
 // Bisection to search the correct time so that sun has azimuth dirsearch
 function bisection(initmin, initmax, lat, lng, dirsearch, itermax=10000, dirtol=0.000001){
     var i = 0,
         stop = false,
-        mini = initmin ,
+        mini = initmin,
         maxi = initmax,
         resmin, resmax, newi, newres, sol;
+
+    if (dirsearch < 0){
+        dirsearch += 6.283185307179586;
+    }
 
     while ((i < itermax) && !stop){
         resmin = finddirection(mini, lat, lng, dirsearch)
@@ -271,12 +278,13 @@ function bisection(initmin, initmax, lat, lng, dirsearch, itermax=10000, dirtol=
 
         if (resmin*resmax > 0){
             stop = true
-            // console.log("No solution, impossible region")
+            console.log("No solution, impossible region")
             sol = NaN
         }
         else{
             newi = (toJulian(mini) + toJulian(maxi))/2.
             newi = fromJulian(newi) // convert to date format again
+            //console.log(newi)
             newres = finddirection(newi, lat, lng, dirsearch)
             if (newres*resmax < 0.0){
                 mini = newi;
@@ -324,18 +332,22 @@ SunCalc.kiblaTimes = function(date, lat, lng, kiblaAzimuth){
     
     // sun direction
     var dirsearch = kiblaAzimuth 
+    console.log("indir")
     var indir = bisection(initmin, initmax, lat, lng, dirsearch)
     
     // shadow direction
     dirsearch = kiblaAzimuth - PI
+    console.log("out")
     var outdir = bisection(initmin, initmax, lat, lng, dirsearch)
 
     // right angle 1 
     dirsearch = kiblaAzimuth - PI/2.
+    console.log("1")
     var rigdir1 = bisection(initmin, initmax, lat, lng, dirsearch)
 
     // right angle 2
     dirsearch = kiblaAzimuth + PI/2.
+    console.log("2")
     var rigdir2 = bisection(initmin, initmax, lat, lng, dirsearch)
 
     // HA sun in radian
@@ -350,6 +362,13 @@ SunCalc.kiblaTimes = function(date, lat, lng, kiblaAzimuth){
 };
 
 //------------------------------------------
+
+
+
+
+
+
+
 
 // moon calculations, based on http://aa.quae.nl/en/reken/hemelpositie.html formulas
 
