@@ -255,15 +255,12 @@ SunCalc.prayTimes = function (date, lat, lng) {
 function finddirection(date, lat, lng, dirsearch){
     var newpos = SunCalc.getPosition(date, lat, lng)
     var azi = newpos['azimuth']
-    // if (azi < 0){
-    //     azi += 6.283185307179586; // + 2pi -> stay positive
-    // }
-
     if (swic){
         if (azi < 0){
             azi += 6.283185307179586;
         }
     }
+
     //console.log(azi*deg);
     return dirsearch-azi
 };
@@ -377,9 +374,12 @@ SunCalc.kiblaTimes = function(date, lat, lng, kiblaAzimuth){
         c  = sunCoords(d)
 
     swic = false;
-    if (abs(phi) > abs(c.dec)){
+    //console.log(phi)
+    //console.log(c.dec)
+    if ( ((c.dec > 0) && (phi > c.dec)) || ((c.dec < 0) && (phi < c.dec)) ) {
         swic = true;
     }
+    //console.log(swic)
 
     // sun direction
     var dirsearch = kiblaAzimuth 
