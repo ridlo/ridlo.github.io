@@ -1,6 +1,4 @@
-// var date = new Date();
-// var lat = 50;
-// var lng = -70.5886011;
+
 
 // function converttime(datetime){
 // 	if (isNaN(datetime)){
@@ -53,9 +51,20 @@
 
 
 //Kaaba Time
-// var sunpos = SunCalc.kiblaTimes(date, lat, lng, -179);
-// console.log("yaya: ", sunpos);
+
+var date = new Date();
+var lat = 50;
+var lng = -70.5886011;
+var sunpos = SunCalc.kiblaTimes(date, lat, lng, -179);
+console.log("yaya: ", sunpos);
 // document.getElementById("indir").innerHTML = converttime2(sunpos['indir']);
 // document.getElementById("outdir").innerHTML = converttime2(sunpos['outdir']);
 // document.getElementById("rightangle1").innerHTML = converttime2(sunpos['rightangle1']);
 // document.getElementById("rightangle2").innerHTML = converttime2(sunpos['rightangle2']);
+
+
+var date = new Date();
+var lat = -7;
+var lng = 105;
+var sunpos = SunCalc.kiblaTimes(date, lat, lng, 65);
+console.log("mama: ", sunpos);
