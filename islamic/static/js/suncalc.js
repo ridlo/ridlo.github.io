@@ -254,15 +254,15 @@ SunCalc.prayTimes = function (date, lat, lng) {
 function finddirection(date, lat, lng, dirsearch){
     var newpos = SunCalc.getPosition(date, lat, lng)
     var azi = newpos['azimuth']
-    if (azi < 0){
-        azi += 6.283185307179586; // + 2pi -> stay positive
-    }
+    // if (azi < 0){
+    //     azi += 6.283185307179586; // + 2pi -> stay positive
+    // }
     //console.log(azi*deg);
     return dirsearch-azi
 };
 
 // Bisection to search the correct time so that sun has azimuth dirsearch
-function bisection(initmin, initmax, lat, lng, dirsearch, tnoon, itermax=10000, dirtol=0.000001){
+function bisection(initmin, initmax, lat, lng, dirsearch, tnoon, itermax=10000, dirtol=0.0001){
     var i = 0,
         stop = false,
         mini = initmin,
@@ -270,9 +270,9 @@ function bisection(initmin, initmax, lat, lng, dirsearch, tnoon, itermax=10000, 
         newi, newres;
     var sol = NaN;
 
-    if (dirsearch < 0){
-        dirsearch += 6.283185307179586;
-    }
+    // if (dirsearch < 0){
+    //     dirsearch += 6.283185307179586;
+    // }
 
     var resnoon = finddirection(tnoon, lat, lng, dirsearch);
     var resmin = finddirection(mini, lat, lng, dirsearch);
@@ -301,10 +301,10 @@ function bisection(initmin, initmax, lat, lng, dirsearch, tnoon, itermax=10000, 
         mini = tnoon;
         maxi = initmax;
     }
-    else if (resmax > 0 && (resnoon - resmax) > 3.141592653589793){
-        mini = tnoon;
-        maxi = initmax;
-    }
+    // else if (resmax > 0 && (resnoon - resmax) > 3.141592653589793){
+    //     mini = tnoon;
+    //     maxi = initmax;
+    // }
     else{
         console.log("No solution, impossible region")
         return sol
