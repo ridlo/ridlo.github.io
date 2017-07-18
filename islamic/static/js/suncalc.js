@@ -307,12 +307,8 @@ function bisection(initmin, initmax, lat, lng, dirsearch, tnoon, itermax=10000, 
         mini = tnoon;
         maxi = initmax;
     }
-    // else if (resmax > 0 && (resnoon - resmax) > 3.141592653589793){
-    //     mini = tnoon;
-    //     maxi = initmax;
-    // }
     else{
-        console.log("No solution, impossible region")
+        // console.log("No solution, impossible region")
         return sol
     }
 
