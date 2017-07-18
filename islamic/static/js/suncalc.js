@@ -19,6 +19,7 @@ var PI   = Math.PI,
     acos = Math.acos,
     abs = Math.abs,
     deg = 180 / PI,
+    swic = false,
     rad  = PI / 180;
 
 // sun calculations are based on http://aa.quae.nl/en/reken/zonpositie.html formulas
@@ -257,6 +258,12 @@ function finddirection(date, lat, lng, dirsearch){
     // if (azi < 0){
     //     azi += 6.283185307179586; // + 2pi -> stay positive
     // }
+
+    if (swic){
+        if (dirsearch < 0){
+            dirsearch += 6.283185307179586;
+        }
+    }
     //console.log(azi*deg);
     return dirsearch-azi
 };
@@ -270,9 +277,11 @@ function bisection(initmin, initmax, lat, lng, dirsearch, tnoon, itermax=10000, 
         newi, newres;
     var sol = NaN;
 
-    // if (dirsearch < 0){
-    //     dirsearch += 6.283185307179586;
-    // }
+    if (swic){
+        if (dirsearch < 0){
+            dirsearch += 6.283185307179586;
+        }
+    }
 
     var resnoon = finddirection(tnoon, lat, lng, dirsearch);
     var resmin = finddirection(mini, lat, lng, dirsearch);
@@ -362,7 +371,15 @@ SunCalc.kiblaTimes = function(date, lat, lng, kiblaAzimuth){
     var initmin = times['sunriseEnd'] // sunrise
     var initmax = times['sunsetStart'] // sunset
     var tnoon = times['solarNoon'] // noon
-    
+    var lw  = rad * -lng,
+        phi = rad * lat,
+        d   = toDays(date),
+        c  = sunCoords(d)
+
+    if (abs(lw) > abs(c.dec)){
+        swic = true;
+    }
+
     // sun direction
     var dirsearch = kiblaAzimuth 
     console.log("indir")
